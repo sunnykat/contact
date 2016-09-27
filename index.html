@@ -14,10 +14,23 @@
     .user p{display:inline-block;}
     .user form{display:inline-block;}
     #input{
-      width:50%;
+      width:40%;
+      display:inline-block;
+    }
+    #user_info{
+      display:inline-block;
+      width:49%;
+      vertical-align: top;
     }
     .user{
-
+      width:80%;
+      height:25%;
+      display:inline-block;
+      border:1px solid black;
+      padding:10px;
+    }
+    .user p span{
+      display:none;
     }
   </style>
 </head>
@@ -38,9 +51,12 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>$(document).ready(function(){
-    $('form.contact').submit(function(){
-      var name=$(this).children('#fname').val();
-      var lname=$(this).children('#lname').val();
+    $('.contact').submit(function(){
+      var name=$('#fname').val();
+      var lname=$('#lname').val();
+      var desc=$('textarea').val();
+      $('.contact input:not(:last-of-type), textarea').val('');
+      $('#user_info').append('<div class="user"><h2>'+name+' '+lname+'</h2><br><p>Click for description</p><p><span>'+desc+'</span></p>');
       return false;
     });
 
