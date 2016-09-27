@@ -29,7 +29,7 @@
       border:1px solid black;
       padding:10px;
     }
-    .user p span{
+    .user h3{
       display:none;
     }
   </style>
@@ -51,12 +51,23 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>$(document).ready(function(){
+    function swap() {
+      $('#user_info h2').toggle();
+      $('#user_info p').toggle();
+      $('#user_info h3').toggle();
+    }
+    $('#user_info').on('click', 'p', function(){
+      swap();
+    });
+    $('#user_info').on('click', 'h3', function(){
+      swap();
+    });
     $('.contact').submit(function(){
       var name=$('#fname').val();
       var lname=$('#lname').val();
       var desc=$('textarea').val();
       $('.contact input:not(:last-of-type), textarea').val('');
-      $('#user_info').append('<div class="user"><h2>'+name+' '+lname+'</h2><br><p>Click for description</p><p><span>'+desc+'</span></p>');
+      $('#user_info').append('<div class="user"><h2>'+name+' '+lname+'</h2><br><p>Click for description</p><h3>'+desc+'</h3>');
       return false;
     });
 
