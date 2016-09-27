@@ -39,6 +39,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script>$(document).ready(function(){
     $('form.contact').submit(function(){
+      var name=$(this).children('#fname').val();
+      var lname=$(this).children('#lname').val();
       return false;
     });
 
